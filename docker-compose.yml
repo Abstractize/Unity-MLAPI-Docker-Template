@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  dedicated-server:
+    image: dedicated-server
+    build:
+      context: game
+      dockerfile: Dockerfile
+      args: 
+      - UNITY_USERNAME=${UNITY_USERNAME}
+      - UNITY_PASSWORD=${UNITY_PASSWORD}
+      - UNITY_SERIAL=${UNITY_SERIAL}
+    restart: always
+    ports:
+      - "7777:7777/udp"
