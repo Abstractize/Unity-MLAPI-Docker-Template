@@ -1,4 +1,5 @@
 ﻿using UnityEditor;
+using UnityEngine;
 
 namespace Builder
 {
@@ -28,7 +29,13 @@ namespace Builder
             player.targetGroup = TargetGroup;
             player.options = Options;
 
-            BuildPipeline.BuildPlayer(player);
+            if(BuildPipeline.IsBuildTargetSupported(TargetGroup, Target))
+            {
+                Debug.LogAssertion(Target.ToString() + " is Supported.");
+                BuildPipeline.BuildPlayer(player);
+            }
+            else
+                Debug.LogError(Target.ToString() + " is NOT Supported.");
         }
     }
 }

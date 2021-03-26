@@ -1,4 +1,5 @@
 FROM unityci/editor:ubuntu-2019.4.20f1-linux-il2cpp-0.11.0 AS builder
+
 ARG UNITY_USERNAME
 ARG UNITY_PASSWORD
 ARG UNITY_SERIAL
