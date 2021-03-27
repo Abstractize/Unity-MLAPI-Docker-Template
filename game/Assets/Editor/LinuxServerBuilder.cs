@@ -7,6 +7,7 @@ namespace Builder
     { 
         new static void configure()
         {
+            
             TargetGroup = BuildTargetGroup.Standalone;
             Target = BuildTarget.StandaloneLinux64;
             Scenes = new string[]{
@@ -15,7 +16,6 @@ namespace Builder
             FolderToDeploy = "Server/GameServer";
             Options = BuildOptions.EnableHeadlessMode;
         }
-        [MenuItem("Build/Linux Server")]
         new static void build()
         {
             configure();
@@ -28,7 +28,7 @@ namespace Builder
             player.target = Target;
             player.targetGroup = TargetGroup;
             player.options = Options;
-
+            PlayerSettings.SetScriptingBackend(TargetGroup, ScriptingImplementation.IL2CPP);
             if(BuildPipeline.IsBuildTargetSupported(TargetGroup, Target))
             {
                 Debug.LogAssertion(Target.ToString() + " is Supported.");
