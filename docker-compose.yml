@@ -14,3 +14,5 @@ services:
     ports:
       - "7777:7777/udp"
       - "7777:7777/tcp"
+    volumes:
+      - ./game/Logs:/Logs

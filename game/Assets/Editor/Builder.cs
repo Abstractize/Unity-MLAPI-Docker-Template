@@ -11,7 +11,6 @@ namespace Builder
         protected static string PathToDeploy {get; set;} = "Build/";
         protected static string FolderToDeploy {get; set;}
         protected static BuildOptions Options {get; set;}
-        [MenuItem("Build/Server")]
         protected static void build()
         {
             configure();
